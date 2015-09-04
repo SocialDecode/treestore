@@ -1,0 +1,22 @@
+{
+  "name": "treestore",
+  "version": "0.0.1",
+  "description": "Unique data saving and comparison for faster comparison.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SocialDecode/treestore.git"
+  },
+  "author": "Salvador Aceves Osuna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SocialDecode/treestore/issues"
+  },
+  "homepage": "https://github.com/SocialDecode/treestore",
+  "dependencies": {
+    "coffee-script": "^1.10.0"
+  }
+}
