@@ -1,6 +1,6 @@
 {
   "name": "treestore",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Unique data saving and comparison for faster comparison.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/SocialDecode/treestore",
   "dependencies": {
-    "coffee-script": "^1.10.0",
+    "coffee-script": "^1.10.0"
+  },
+  "devDependencies": {
     "nodeunit": "^0.9.1"
   }
 }
