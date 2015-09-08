@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/SocialDecode/treestore",
   "dependencies": {
-    "coffee-script": "^1.10.0"
+    "coffee-script": "^1.10.0",
+    "msgpack5": "^3.1.0"
   },
   "devDependencies": {
     "nodeunit": "^0.9.1"

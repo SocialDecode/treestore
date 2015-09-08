@@ -9,6 +9,7 @@ class treestore
 		console.log o,s if d
 		if s.length > 1
 			l = s.shift()
+			console.log ":", l, o[l] if d
 			if o[l]?
 				if o[l] is true
 					l2 = s.shift()
@@ -22,7 +23,14 @@ class treestore
 		else
 			return true
 	size:->
-		return Buffer.byteLength(JSON.stringify(@tree),'utf8')
+		return {
+			unpacked:Buffer.byteLength(JSON.stringify(@tree),'utf8'),
+			packed:Buffer.byteLength(@pack().toString('hex'),'utf8')
+		}
+	pack:->
+		msgpack = require('msgpack5')()
+		msgpack.encode(@tree)
+
 	#compare:(otree)->
 		#plain_a = {}
 		#plain_b = {}

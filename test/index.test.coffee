@@ -5,22 +5,19 @@ exports.testInsert =
 		@treestore = new Treestore
 		callback()
 	'insertion of elements': (test)->
-		#console.log @treestore.push "casa"
-		#console.log @treestore.push "perro"
-		#console.log @treestore.push "perreo"
-		#console.log @treestore.push "perron"
-		#console.log @treestore.push "perronsisisisimo"
-		testobj = {}
-		for x in [0..30000]
-			k = "twitter_#{x}"
-			@treestore.push k 
-			testobj[k]=true
-		console.log @treestore.size() + " bytes."
-		console.log Buffer.byteLength(JSON.stringify(testobj),'utf8') + " bytes."
+		for x in [1..30]
+			@treestore.push "twitter_#{x}", if (x is 4) then true else false
+		for x in [1..9]
+			test.ok @treestore.tree["t"]["w"]["i"]["t"]["t"]["e"]["r"]["_"][x.toString()]?
+		console.log JSON.stringify @treestore.tree , false, 3
 		test.done()
-	#'element comparisson': (test)->
-		#@treestore2 = new Treestore
-		#for x in [20000..30000]
-			#@treestore2.push "twitter_#{x}"
-		#console.log @treestore.compare(@treestore)
-		#test.done()
+	'element comparisson': (test)->
+		@treestore2 = new Treestore
+		for x in [20..39]
+			@treestore2.push "twitter_#{x}"
+		result = @treestore.compare(@treestore)
+		test.equal(result.ratio, 0.22) # this is the ratio of coincidences of sample a + sample b (50); 1/50 * 100
+		test.done()
+	'unique count': (test)->
+		test.equal(@treestore.length(), 30) # number of unique elements
+		test.done()
