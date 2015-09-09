@@ -57,11 +57,11 @@ Returns the size in bytes of the unpacked and packed (using msgpack) string repr
 
 ```{ unpacked: 343, packed: 260 }```
 
-## length()
+### length()
 
 Returns the number of elements of the tree.
 
-## compare(another_treestore)*
+### compare(another_treestore)*
 
 Returns the number of matches between two treestores
 
