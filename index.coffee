@@ -7,7 +7,7 @@ class treestore
 		return JSON.stringify @tree,null,3 if debug
 	merge:(o,s,d)->
 		console.log o,s if d
-		if s.length > 1
+		if s.length > 0
 			l = s.shift()
 			console.log ":", l, o[l] if d
 			if o[l]?
@@ -25,13 +25,24 @@ class treestore
 	size:->
 		return {
 			unpacked:Buffer.byteLength(JSON.stringify(@tree),'utf8'),
-			packed:Buffer.byteLength(@pack().toString('hex'),'utf8')
+			packed:Buffer.byteLength(@pack().toString('hex'),'utf8'),
 		}
+	length : ->
+		cnt = 0
+		dowalk = (obj)->
+			for own k,v of obj
+				if typeof v is "object"
+					dowalk(v)
+				else
+					cnt++
+		dowalk(@tree)
+		return cnt
+
 	pack:->
 		msgpack = require('msgpack5')()
 		msgpack.encode(@tree)
 
-	#compare:(otree)->
+	compare:(otree)->
 		#plain_a = {}
 		#plain_b = {}
 		#matches = 0
