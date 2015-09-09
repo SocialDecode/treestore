@@ -1,10 +1,9 @@
 class treestore
 	tree : {}
-	push:(el, debug=false)->
+	push:(el)->
 		es = []
 		es.push letter for letter in el.toString()
 		@tree = @merge(@tree,es,debug)
-		return JSON.stringify @tree,null,3 if debug
 	merge:(o,s,d)->
 		console.log o,s if d
 		if s.length > 0

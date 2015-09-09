@@ -18,5 +18,5 @@ exports.testInsert =
 		for x in [20..39]
 			@treestore2.push "twitter_#{x}"
 		result = @treestore.compare(@treestore)
-		test.equal(@treestore.compare(@treestore), 50) # this is the ratio of coincidences of sample a + sample b (50); 1/50 * 100
+		test.equal(@treestore.compare(@treestore), 50) # this is the number of coincidences
 		test.done()
