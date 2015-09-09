@@ -3,21 +3,19 @@ class treestore
 	push:(el)->
 		es = []
 		es.push letter for letter in el.toString()
-		@tree = @merge(@tree,es,debug)
-	merge:(o,s,d)->
-		console.log o,s if d
+		@tree = @merge(@tree,es)
+	merge:(o,s)->
 		if s.length > 0
 			l = s.shift()
-			console.log ":", l, o[l] if d
 			if o[l]?
 				if o[l] is true
 					l2 = s.shift()
 					o[l] = {eow:true}
-					o[l][l2] = @merge({},s,d)
+					o[l][l2] = @merge({},s)
 				else
-					o[l] = @merge(o[l],s,d)
+					o[l] = @merge(o[l],s)
 			else
-				o[l] = @merge({},s,d)
+				o[l] = @merge({},s)
 			return o
 		else
 			return true

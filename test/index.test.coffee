@@ -13,10 +13,9 @@ exports.testInsert =
 	'unique count': (test)->
 		test.equal(@treestore.length(), 30) # number of unique elements
 		test.done()
-	'element comparisson': (test)->
+	'element comparison': (test)->
 		@treestore2 = new Treestore
 		for x in [20..39]
 			@treestore2.push "twitter_#{x}"
-		result = @treestore.compare(@treestore)
 		test.equal(@treestore.compare(@treestore), 50) # this is the number of coincidences
 		test.done()
