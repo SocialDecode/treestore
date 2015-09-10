@@ -1,6 +1,6 @@
 {
   "name": "treestore",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Unique data saving and comparison for faster comparison.",
   "main": "index.js",
   "scripts": {
