@@ -3,19 +3,19 @@ class treestore
 	push:(el)->
 		es = []
 		es.push letter for letter in el.toString()
-		@tree = @merge(@tree,es)
-	merge:(o,s)->
+		@tree = @build(@tree,es)
+	build:(o,s)->
 		if s.length > 0
 			l = s.shift()
 			if o[l]?
 				if o[l] is true
 					l2 = s.shift()
 					o[l] = {eow:true}
-					o[l][l2] = @merge({},s)
+					o[l][l2] = @build({},s)
 				else
-					o[l] = @merge(o[l],s)
+					o[l] = @build(o[l],s)
 			else
-				o[l] = @merge({},s)
+				o[l] = @build({},s)
 			return o
 		else
 			return true
@@ -48,5 +48,6 @@ class treestore
 				#if typeof(a) is "object"
 		#dig_in(otree.tree,_plain_b)
 		#console.log plain_a
+	merge:(otree)->
 
 module.exports = treestore

@@ -65,4 +65,8 @@ Returns the number of elements of the tree.
 
 Returns the number of matches between two treestores
 
+### merge(another_treestore)*
+
+Merges one treestore to another
+
 *toDo

@@ -19,3 +19,7 @@ exports.testInsert =
 			@treestore2.push "twitter_#{x}"
 		test.equal(@treestore.compare(@treestore), 50) # this is the number of coincidences
 		test.done()
+	'merge': (test)->
+		treestore.merge @treestore2
+		test.equal(@treestore.length(), 39)
+		test.done()
